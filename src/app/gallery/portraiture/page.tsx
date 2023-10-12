@@ -3,9 +3,9 @@ import GetPaintings from "@/components/api/GetPaintings";
 import Gallery from "@/components/Gallery";
 
 const Maine = async () => {
-  const paintings = await GetPaintings(true, "Portraiture");
+  const paintings = await GetPaintings("/portraiture");
 
-  return Gallery(paintings);
+  return Gallery(paintings, "/portraiture");
 };
 
 export default Maine;

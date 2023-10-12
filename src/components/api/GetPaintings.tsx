@@ -3,19 +3,11 @@ import Painting from "../Painting";
 import { cache } from "react";
 
 let num = 0;
-let paintings: Painting[] = [];
 
-export const GetPaintings = async (refresh: boolean, filter: string) => {
-  if (refresh || paintings.length == 0) {
-    paintings = await FetchFromNotion(filter);
-  }
-  return paintings;
-};
-
-const FetchFromNotion = async (filter: string): Promise<Painting[]> => {
+const GetPaintings = async (filter: string): Promise<Painting[]> => {
   // Initialize a client
   num++;
-  console.log("Call to Notion  " + num + " beginning...");
+  console.log("Call to Notion  " + num);
   const NOTION_CLIENT = new Client({
     auth: process.env.NOTION_SECRET,
   });
@@ -50,14 +42,12 @@ const FetchFromNotion = async (filter: string): Promise<Painting[]> => {
 
     return results.map((item) => {
       const painting = item as any;
-      console.log(painting.properties["Photo"].files);
       const date = painting.properties["Completed"].date.start;
       let year = "";
       if (date) {
         const parsedDate = new Date(date);
         year = parsedDate.getFullYear().toString();
       }
-      console.log("..." + num + " finished");
       return {
         id: painting.id,
         title: painting.properties["Title"].title[0]?.text.content,
@@ -70,9 +60,8 @@ const FetchFromNotion = async (filter: string): Promise<Painting[]> => {
     });
   } catch (error) {
     console.error("Error fetching data from Notion API:", error);
-    throw new Error("Error fetching data from Notion API");
+    return [];
   }
 };
-// export const GetPaintings = cache(FetchFromNotion);
 
 export default GetPaintings;

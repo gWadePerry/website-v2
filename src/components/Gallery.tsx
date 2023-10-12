@@ -3,28 +3,28 @@ import Image from "next/image";
 import Link from "next/link";
 import Painting from "./Painting";
 
-const Gallery = async (paintings: Painting[]) => {
+const Gallery = async (paintings: Painting[], filter: string) => {
   return (
     <div className="p-4 pt-10 px-20">
       {/* <h1 className="text-4xl mb-4 font-light">Gallery</h1> */}
       <div className="max-w-[900px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8 ">
         {paintings.map((painting, index) => (
           <Link
-            // href={{
-            //   pathname: "/painting",
-            //   query: { index: index },
-            // }}
             href={{
-              pathname: "/ImageDetailPage",
-              query: {
-                id: painting.id,
-                title: painting.title,
-                scale: painting.scale,
-                medium: painting.medium,
-                year: painting.year,
-                photoUrl: painting.photoUrl,
-              },
+              pathname: "/painting",
+              query: { index: index, filter: filter },
             }}
+            // href={{
+            //   pathname: "/ImageDetailPage",
+            //   query: {
+            //     id: painting.id,
+            //     title: painting.title,
+            //     scale: painting.scale,
+            //     medium: painting.medium,
+            //     year: painting.year,
+            //     photoUrl: painting.photoUrl,
+            //   },
+            // }}
             key={painting.id}
             className="relative group overflow-hidden cursor-pointer"
           >
