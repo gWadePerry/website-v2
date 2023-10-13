@@ -1,5 +1,6 @@
 import React from "react";
 import GetPaintings from "./api/GetPaintings";
+import Image from "next/image";
 
 const Home = async () => {
   const normalizedData = GetPaintings("Home");
@@ -14,7 +15,13 @@ const Home = async () => {
         {painting.photoUrl && (
           <div className="content">
             <div className="image-container">
-              <img src={painting.photoUrl} alt={""} />
+              <Image
+                className="w-full h-auto object-scale-down"
+                src={painting.photoUrl}
+                alt={""}
+                width={800}
+                height={800}
+              />
             </div>
             <div className="text-info font-light">
               <p>{painting.title}</p>

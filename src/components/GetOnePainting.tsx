@@ -1,5 +1,6 @@
 import React from "react";
 import GetPaintings from "./api/GetPaintings";
+import Image from "next/image";
 
 const GetOnePainting = async (tag: string) => {
   const normalizedData = GetPaintings(tag);
@@ -14,7 +15,13 @@ const GetOnePainting = async (tag: string) => {
         {painting.photoUrl && (
           <div className="content">
             <div className="image-container">
-              <img src={painting.photoUrl} alt={""} />
+              <Image
+                className="w-full h-auto object-scale-down"
+                src={painting.photoUrl}
+                alt={""}
+                width={800}
+                height={800}
+              />
             </div>
           </div>
         )}

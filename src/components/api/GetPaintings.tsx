@@ -1,13 +1,12 @@
 import { Client } from "@notionhq/client";
 import Painting from "../Painting";
-import { cache } from "react";
 
-let num = 0;
+// let num = 0;
 
 const GetPaintings = async (filter: string): Promise<Painting[]> => {
   // Initialize a client
-  num++;
-  console.log("Call to Notion  " + num);
+  // num++;
+  // console.log("Call to Notion  " + num);
   const NOTION_CLIENT = new Client({
     auth: process.env.NOTION_SECRET,
   });

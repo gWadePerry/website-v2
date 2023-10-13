@@ -22,7 +22,6 @@ const Navbar = () => {
     { path: "/about", label: "About" },
     { path: "/contact", label: "Commission/Contact" },
   ];
-  console.log(navItems);
   return (
     <nav className="flex justify-between max-w-[1000px] mx-auto px-10 py-4 bg-white text-black font-extralight">
       <Link href="/" className="text-2xl text-left font-light ">
