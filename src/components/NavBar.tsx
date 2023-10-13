@@ -10,7 +10,7 @@ const Navbar = () => {
   const navItems = [
     { path: "/", label: "Home" },
     {
-      path: "/gallery",
+      path: "",
       label: "Gallery",
       dropdown: [
         { path: "/gallery/maine", label: "Maine Landscape" },
@@ -22,7 +22,7 @@ const Navbar = () => {
     { path: "/about", label: "About" },
     { path: "/contact", label: "Commission/Contact" },
   ];
-
+  console.log(navItems);
   return (
     <nav className="flex justify-between max-w-[1000px] mx-auto px-10 py-4 bg-white text-black font-extralight">
       <Link href="/" className="text-2xl text-left font-light ">
@@ -32,18 +32,23 @@ const Navbar = () => {
         {navItems.map((item) => (
           <li
             key={item.path}
-            className="relative group"
+            className="relative group cursor-default"
             onMouseEnter={() => setOpenDropdown(item.label)}
             onMouseLeave={() => setOpenDropdown(null)}
           >
-            <Link
-              href={item.path}
-              className={`${
-                path === item.path ? "border-b-2 border-black" : ""
-              } hover:text-blue-500 cursor-pointer`}
-            >
-              {item.label}
-            </Link>
+            {item.path ? (
+              <Link
+                href={item.path}
+                className={`${
+                  path === item.path ? "border-b-2 border-black" : ""
+                } hover:text-blue-500 cursor-pointer`}
+              >
+                {item.label}
+              </Link>
+            ) : (
+              item.label
+            )}
+
             {openDropdown === item.label && item.dropdown && (
               <ul className="z-50 absolute left-0 space-y-2 bg-white text-black p-2 rounded shadow-lg">
                 {item.dropdown.map((subItem) => (
