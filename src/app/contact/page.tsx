@@ -1,5 +1,6 @@
 import React from "react";
 import GetOnePainting from "@/components/GetOnePainting";
+import Link from "next/link";
 
 const Contact = () => {
   return (
@@ -10,24 +11,21 @@ const Contact = () => {
           paintings, my pricing, or if you'd like to commission a piece.
         </p>
         <p style={{ padding: "10px" }}>
-          email:{" "}
-          <a
-            className="hover:text-blue-500"
-            href="mailto:your-email@example.com"
-          >
+          email:
+          <Link className="hover:text-blue-500" href="wadeperryart@gmail.com">
             wadeperryart@gmail.com
-          </a>
+          </Link>
           &nbsp;
         </p>
         <p style={{ padding: "10px" }}>
-          instagram:{" "}
-          <a
+          instagram:
+          <Link
             className="hover:text-blue-500"
             href="https://www.instagram.com/wadeperryart/"
             target="_blank"
           >
             @wadeperryart &nbsp;
-          </a>
+          </Link>
         </p>
       </div>
       {GetOnePainting("Home")}
