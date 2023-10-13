@@ -8,7 +8,7 @@ const Contact = () => {
       <div className="text-center text-light px-20">
         <p style={{ padding: "20px" }}>
           Please reach out if you have any questions about specific available
-          paintings, my pricing, or if you'd like to commission a piece.
+          paintings, my pricing, or if you&apos;d like to commission a piece.
         </p>
         <p style={{ padding: "10px" }}>
           email:
