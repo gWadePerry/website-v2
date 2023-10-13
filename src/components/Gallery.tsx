@@ -14,17 +14,6 @@ const Gallery = async (paintings: Painting[], filter: string) => {
               pathname: "/painting",
               query: { index: index, filter: filter },
             }}
-            // href={{
-            //   pathname: "/ImageDetailPage",
-            //   query: {
-            //     id: painting.id,
-            //     title: painting.title,
-            //     scale: painting.scale,
-            //     medium: painting.medium,
-            //     year: painting.year,
-            //     photoUrl: painting.photoUrl,
-            //   },
-            // }}
             key={painting.id}
             className="relative group overflow-hidden cursor-pointer"
           >
