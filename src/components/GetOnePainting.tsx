@@ -18,12 +18,10 @@ const GetOnePainting = async (tag: string) => {
         {painting.photoUrl && (
           <div className="content">
             <div className="image-container">
-              <Image
+              <img
                 className="w-full h-auto object-scale-down"
                 src={painting.photoUrl}
                 alt={""}
-                width={800}
-                height={800}
               />
             </div>
           </div>
