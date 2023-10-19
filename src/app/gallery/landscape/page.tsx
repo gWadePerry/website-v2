@@ -3,7 +3,10 @@ import GetPaintings from "@/components/api/GetPaintings";
 import Gallery from "@/components/Gallery";
 
 const Landscape = async () => {
-  const paintings = await GetPaintings("/landscape");
+  const allPaintings = await GetPaintings();
+  const paintings = allPaintings.filter((painting) => {
+    return painting.tags.includes("/landscape");
+  });
 
   return (
     <>

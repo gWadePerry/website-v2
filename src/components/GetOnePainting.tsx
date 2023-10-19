@@ -3,11 +3,14 @@ import GetPaintings from "./api/GetPaintings";
 import Image from "next/image";
 
 const GetOnePainting = async (tag: string) => {
-  const normalizedData = GetPaintings(tag);
-  const painting = await normalizedData.then((paintings) => {
-    const randomIndex = Math.floor(Math.random() * paintings.length);
-    return paintings[randomIndex];
+  const allPaintings = await GetPaintings();
+
+  const paintings = allPaintings.filter((painting) => {
+    return painting.tags.includes(tag);
   });
+
+  const randomIndex = Math.floor(Math.random() * paintings.length);
+  const painting = paintings[randomIndex];
 
   return (
     <>

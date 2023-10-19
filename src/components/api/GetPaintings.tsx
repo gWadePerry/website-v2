@@ -1,12 +1,39 @@
 import { Client } from "@notionhq/client";
 import Painting from "../Painting";
 
-// let num = 0;
+let num = 0;
 
-const GetPaintings = async (filter: string): Promise<Painting[]> => {
-  // Initialize a client
-  // num++;
-  // console.log("Call to Notion  " + num);
+interface Tags {
+  id: string;
+  name: string;
+  color: string;
+}
+
+let paintings: Painting[] = [];
+let lastFetched: number | null = null; // timestamp of the last fetched data
+
+const THIRTY_MINUTES = 30 * 60 * 1000; // 30 minutes in milliseconds
+
+const GetPaintings = async (): Promise<Painting[]> => {
+  const currentTime = Date.now();
+  if (lastFetched) {
+    console.log(currentTime - lastFetched);
+  }
+
+  if (
+    paintings.length === 0 ||
+    (lastFetched && currentTime - lastFetched > THIRTY_MINUTES)
+  ) {
+    paintings = await FetchFromNotion();
+    lastFetched = currentTime; // Update the timestamp
+  }
+  return paintings;
+};
+
+const FetchFromNotion = async (): Promise<Painting[]> => {
+  num++;
+  console.log("Call to Notion  " + num);
+
   const NOTION_CLIENT = new Client({
     auth: process.env.NOTION_SECRET,
   });
@@ -15,20 +42,10 @@ const GetPaintings = async (filter: string): Promise<Painting[]> => {
     const response = await NOTION_CLIENT.databases.query({
       database_id: process.env.NOTION_DATABASE_ID ?? "",
       filter: {
-        and: [
-          {
-            property: "WebPage",
-            multi_select: {
-              contains: "Show",
-            },
-          },
-          {
-            property: "WebPage",
-            multi_select: {
-              contains: filter,
-            },
-          },
-        ],
+        property: "WebPage",
+        multi_select: {
+          contains: "Show",
+        },
       },
       sorts: [
         {
@@ -39,7 +56,7 @@ const GetPaintings = async (filter: string): Promise<Painting[]> => {
     });
     const results = response.results;
 
-    return results.map((item) => {
+    paintings = results.map((item) => {
       const painting = item as any;
       const date = painting.properties["Completed"].date.start;
       let year = "";
@@ -55,8 +72,14 @@ const GetPaintings = async (filter: string): Promise<Painting[]> => {
         date: date,
         photoUrl: painting.properties["Photo"].files[0]?.file.url,
         year: year,
+        tags: painting.properties["WebPage"].multi_select.map(
+          (object: Tags) => {
+            return object.name;
+          }
+        ),
       };
     });
+    return paintings;
   } catch (error) {
     console.error("Error fetching data from Notion API:", error);
     return [];

@@ -6,6 +6,7 @@ interface Painting {
   date: string;
   photoUrl: string | undefined;
   year: string;
+  tags: string[];
 }
 
 export default Painting;

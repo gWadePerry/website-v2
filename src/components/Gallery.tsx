@@ -5,9 +5,9 @@ import Painting from "./Painting";
 
 const Gallery = async (paintings: Painting[], filter: string) => {
   return (
-    <div className="p-4 px-20">
+    <div className="p-4">
       {/* <h1 className="text-4xl mb-4 font-light">Gallery</h1> */}
-      <div className="max-w-[900px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8 ">
+      <div className="max-w-[900px] mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8 ">
         {paintings.map((painting, index) => (
           <Link
             href={{

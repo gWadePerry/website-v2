@@ -23,11 +23,11 @@ const Navbar = () => {
     { path: "/contact", label: "Commission/Contact" },
   ];
   return (
-    <nav className="flex justify-between max-w-[1000px] mx-auto px-10 py-4 bg-white text-black font-extralight">
-      <Link href="/" className="text-2xl text-left font-light ">
+    <nav className="flex flex-col sm:flex-row justify-between max-w-[1000px] mx-auto px-10 py-4 bg-white text-black font-extralight">
+      <Link href="/" className="text-2xl font-light ">
         Wade Perry Art
       </Link>
-      <ul className="flex space-x-4 text-right">
+      <ul className="flex space-x-4 self-end ">
         {navItems.map((item) => (
           <li
             key={item.path}

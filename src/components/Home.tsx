@@ -3,17 +3,20 @@ import GetPaintings from "./api/GetPaintings";
 import Image from "next/image";
 
 const Home = async () => {
-  const normalizedData = GetPaintings("Home");
-  const painting = await normalizedData.then((paintings) => {
-    const randomIndex = Math.floor(Math.random() * paintings.length);
-    return paintings[randomIndex];
+  const normalizedData = await GetPaintings();
+
+  const paintings = normalizedData.filter((painting) => {
+    return painting.tags.includes("Home");
   });
+
+  const randomIndex = Math.floor(Math.random() * paintings.length);
+  const painting = paintings[randomIndex];
 
   return (
     <>
       <div className="image-detail">
         {painting.photoUrl && (
-          <div className="content">
+          <div className="flex flex-col sm:[content]">
             <div className="image-container">
               <Image
                 className="w-full h-auto object-scale-down"

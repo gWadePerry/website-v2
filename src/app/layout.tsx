@@ -10,8 +10,6 @@ export const metadata: Metadata = {
   description: "v2 of an art site and online gallery",
 };
 
-export const revalidate = 2;
-
 export default function RootLayout({
   children,
 }: {

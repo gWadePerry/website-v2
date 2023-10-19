@@ -11,14 +11,14 @@ const Contact = () => {
           paintings, my pricing, or if you&apos;d like to commission a piece.
         </p>
         <p style={{ padding: "10px" }}>
-          email:
+          email:&nbsp;
           <Link className="hover:text-blue-500" href="wadeperryart@gmail.com">
             wadeperryart@gmail.com
           </Link>
           &nbsp;
         </p>
         <p style={{ padding: "10px" }}>
-          instagram:
+          instagram:&nbsp;
           <Link
             className="hover:text-blue-500"
             href="https://www.instagram.com/wadeperryart/"
