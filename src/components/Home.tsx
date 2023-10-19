@@ -18,12 +18,12 @@ const Home = async () => {
         {painting.photoUrl && (
           <div className="flex flex-col sm:[content]">
             <div className="image-container">
-              <Image
+              <img
                 className="w-full h-auto object-scale-down"
                 src={painting.photoUrl}
                 alt={""}
-                width={800}
-                height={800}
+                // width={800}
+                // height={800}
               />
             </div>
             <div className="text-info font-light">

@@ -18,12 +18,12 @@ const Gallery = async (paintings: Painting[], filter: string) => {
             className="relative group overflow-hidden cursor-pointer"
           >
             {painting.photoUrl && (
-              <Image
+              <img
                 src={painting.photoUrl}
                 alt={painting.title}
-                width={200}
-                height={200}
-                quality={20}
+                // width={200}
+                // height={200}
+                // quality={20}
                 className="w-full h-64 object-scale-down"
               />
             )}
