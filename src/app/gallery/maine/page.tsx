@@ -1,6 +1,7 @@
 import React from "react";
 import GetPaintings from "@/components/api/GetPaintings";
 import Gallery from "@/components/Gallery";
+export const revalidate = 3000;
 
 const Maine = async () => {
   const allPaintings = await GetPaintings();

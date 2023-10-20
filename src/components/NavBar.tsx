@@ -10,7 +10,7 @@ const Navbar = () => {
   const navItems = [
     { path: "/", label: "Home" },
     {
-      path: "",
+      path: "/gallery",
       label: "Gallery",
       dropdown: [
         { path: "/gallery/maine", label: "Maine Landscape" },

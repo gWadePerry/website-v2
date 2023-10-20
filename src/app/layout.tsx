@@ -8,7 +8,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Wade Perry Art",
-  description: "v2 of an art site and online gallery",
+  description:
+    "Gallery of the images and works of Wade Perry, a painter based in Boston and Baltimore.",
 };
 
 export default function RootLayout({
