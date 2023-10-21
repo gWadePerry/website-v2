@@ -1,7 +1,6 @@
 import React from "react";
 import GetOnePainting from "@/components/GetOnePainting";
 import Link from "next/link";
-export const revalidate = 3000;
 
 const Contact = () => {
   return (

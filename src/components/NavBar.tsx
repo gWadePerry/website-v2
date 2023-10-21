@@ -13,10 +13,10 @@ const Navbar = () => {
       path: "/gallery",
       label: "Gallery",
       dropdown: [
-        { path: "/gallery/maine", label: "Maine Landscape" },
-        { path: "/gallery/landscape", label: "Landscape Elsewhere" },
-        { path: "/gallery/portraiture", label: "Portraiture" },
-        { path: "/gallery/commissioned", label: "Commissioned Work" },
+        { filter: "/maine", label: "Maine Landscape" },
+        { filter: "/landscape", label: "Landscape Elsewhere" },
+        { filter: "/portraiture", label: "Portraiture" },
+        { filter: "/commissioned", label: "Commissioned Work" },
       ],
     },
     { path: "/about", label: "About" },
@@ -51,9 +51,14 @@ const Navbar = () => {
             {openDropdown === item.label && item.dropdown && (
               <ul className="z-50 absolute left-0 space-y-2 bg-white text-black p-2 rounded shadow-lg">
                 {item.dropdown.map((subItem) => (
-                  <li key={subItem.path}>
+                  <li key={subItem.filter}>
                     <Link
-                      href={subItem.path}
+                      href={{
+                        pathname: item.path,
+                        query: {
+                          filter: subItem.filter,
+                        },
+                      }}
                       className="flex text-left whitespace-nowrap hover:text-blue-500"
                     >
                       {subItem.label}

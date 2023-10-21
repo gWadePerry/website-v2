@@ -2,14 +2,19 @@ import React from "react";
 import Link from "next/link";
 import Painting from "./Painting";
 
-const PaintingPage = (paintings: Painting[], index: number, back: string) => {
+const PaintingPage = (paintings: Painting[], index: number, filter: string) => {
   const length = paintings.length;
   const painting = paintings[index];
   return (
     <div className="z-0 justify-center md:flex h-[calc(100vh-65px)] p-4">
       {/* Left: Back Link */}
       <Link
-        href={"/gallery" + back}
+        href={{
+          pathname: "/gallery",
+          query: {
+            filter: filter,
+          },
+        }}
         className=" flex flex-col justify-center px-4 text-lg whitespace-nowrap hover:text-blue-500"
       >
         &lt; Back
@@ -38,7 +43,7 @@ const PaintingPage = (paintings: Painting[], index: number, back: string) => {
                 pathname: "/painting",
                 query: {
                   index: index - 1,
-                  filter: back,
+                  filter: filter,
                 },
               }}
             >
@@ -53,7 +58,7 @@ const PaintingPage = (paintings: Painting[], index: number, back: string) => {
                 pathname: "/painting",
                 query: {
                   index: index + 1,
-                  filter: back,
+                  filter: filter,
                 },
               }}
             >
