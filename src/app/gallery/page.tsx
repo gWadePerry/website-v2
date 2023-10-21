@@ -7,16 +7,18 @@ const GalleryHandler = async ({ searchParams }: any) => {
   const filter = searchParams.filter ?? "";
 
   const allPaintings = await GetPaintings();
-  const paintings = allPaintings.filter((painting) => {
-    return painting.tags.includes(filter);
-  });
+  const paintings = filter
+    ? allPaintings.filter((painting) => {
+        return painting.tags.includes(filter);
+      })
+    : allPaintings;
 
   return (
     <>
       <div className="text-lg font-thin text-center">
         {GalleryDescription(filter)}
       </div>
-      {Gallery(paintings, "")}
+      {Gallery(paintings, filter)}
     </>
   );
 };
