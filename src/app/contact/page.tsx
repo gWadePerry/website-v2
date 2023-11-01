@@ -5,7 +5,7 @@ import Link from "next/link";
 const Contact = () => {
   return (
     <>
-      <div className="text-center text-light px-20">
+      <div className="text-center font-extralight px-20">
         <p style={{ padding: "20px" }}>
           Please reach out if you have any questions about specific available
           paintings, my pricing, or if you&apos;d like to commission a piece.
@@ -28,7 +28,7 @@ const Contact = () => {
           </Link>
         </p>
       </div>
-      {GetOnePainting("Home")}
+      {GetOnePainting("home")}
     </>
   );
 };

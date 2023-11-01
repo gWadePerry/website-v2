@@ -44,7 +44,7 @@ const FetchFromNotion = async (): Promise<Painting[]> => {
       filter: {
         property: "WebPage",
         multi_select: {
-          contains: "Show",
+          contains: "show",
         },
       },
       sorts: [

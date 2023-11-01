@@ -1,13 +1,13 @@
 import React from "react";
 import GetPaintings from "./api/GetPaintings";
-import Image from "next/image";
 
-const GetOnePainting = async (tag: string) => {
+const GetOnePainting = async (filter: string) => {
   const allPaintings = await GetPaintings();
-
-  const paintings = allPaintings.filter((painting) => {
-    return painting.tags.includes(tag);
-  });
+  const paintings = filter
+    ? allPaintings.filter((painting) => {
+        return painting.tags.includes(filter);
+      })
+    : allPaintings;
 
   const randomIndex = Math.floor(Math.random() * paintings.length);
   const painting = paintings[randomIndex];

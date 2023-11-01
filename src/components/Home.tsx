@@ -1,12 +1,11 @@
 import React from "react";
 import GetPaintings from "./api/GetPaintings";
-import Image from "next/image";
 
 const Home = async () => {
   const normalizedData = await GetPaintings();
 
   const paintings = normalizedData.filter((painting) => {
-    return painting.tags.includes("Home");
+    return painting.tags.includes("home");
   });
 
   const randomIndex = Math.floor(Math.random() * paintings.length);
