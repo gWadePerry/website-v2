@@ -9,8 +9,8 @@ const GalleryDescription = (filter: string) => {
           <p>Available Work</p>
           <p>
             Please reach out for pricing or if interested:{" "}
-            <Link href="/contact" className="hover:text-blue-500">
-              Contact page.
+            <Link href="/contact" className="text-blue-500 hover:underline">
+              Contact.
             </Link>{" "}
           </p>
         </>

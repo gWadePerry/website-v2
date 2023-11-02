@@ -13,21 +13,19 @@ const GetOnePainting = async (filter: string) => {
   const painting = paintings[randomIndex];
 
   return (
-    <>
-      <div className="image-detail">
-        {painting.photoUrl && (
-          <div className="content">
-            <div className="image-container">
-              <img
-                className="w-full h-auto object-scale-down"
-                src={painting.photoUrl}
-                alt={""}
-              />
-            </div>
+    <div className="image-detail">
+      {painting.photoUrl && (
+        <div className="content">
+          <div className="image-container">
+            <img
+              className="w-full h-auto object-scale-down"
+              src={painting.photoUrl}
+              alt={""}
+            />
           </div>
-        )}
-      </div>
-    </>
+        </div>
+      )}
+    </div>
   );
 };
 

@@ -1,6 +1,8 @@
 import React from "react";
 import GetOnePainting from "@/components/GetOnePainting";
 import Link from "next/link";
+import Footer from "@/components/Footer";
+export const revalidate = 3000;
 
 const Contact = () => {
   return (
@@ -29,6 +31,7 @@ const Contact = () => {
         </p>
       </div>
       {GetOnePainting("home")}
+      <Footer />
     </>
   );
 };

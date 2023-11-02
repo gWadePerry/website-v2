@@ -13,9 +13,10 @@ const Home = async () => {
 
   return (
     <>
+      <div className="py-2"> </div>
       <div className="image-detail">
         {painting.photoUrl && (
-          <div className="flex flex-col sm:[content]">
+          <div className="flex flex-col md:flex-row items-center">
             <div className="image-container">
               <img
                 className="w-full h-auto object-scale-down"
@@ -25,7 +26,7 @@ const Home = async () => {
                 // height={800}
               />
             </div>
-            <div className="text-info font-light">
+            <div className="text-center md:text-left md:pl-16 font-light">
               <p>{painting.title}</p>
               <p>{painting.scale}</p>
               <p>{painting.medium}</p>

@@ -2,7 +2,7 @@ import React from "react";
 import GetPaintings from "@/components/api/GetPaintings";
 import Gallery from "@/components/Gallery";
 import GalleryDescription from "@/components/GalleryDescription";
-
+import Footer from "@/components/Footer";
 const GalleryHandler = async ({ searchParams }: any) => {
   const filter = searchParams.filter ?? "";
 
@@ -19,6 +19,7 @@ const GalleryHandler = async ({ searchParams }: any) => {
         {GalleryDescription(filter)}
       </div>
       {Gallery(paintings, filter)}
+      <Footer />
     </>
   );
 };

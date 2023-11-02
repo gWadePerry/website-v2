@@ -6,7 +6,7 @@ const PaintingPage = (paintings: Painting[], index: number, filter: string) => {
   const length = paintings.length;
   const painting = paintings[index];
   return (
-    <div className="z-0 justify-center md:flex h-[calc(100vh-65px)] p-4">
+    <div className="z-0 justify-center md:flex h-[calc(100vh-65px)] p-4 font-light">
       {/* Left: Back Link */}
       <Link
         href={{
